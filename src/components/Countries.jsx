@@ -3,13 +3,17 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 class Countries extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      countries: []
+      countries: [],
+      id: 1
     }
   }
   
+  setId(id) {
+    localStorage.setItem('id', id);
+  }
   
   componentDidMount() {
     axios.get(`http://localhost:3000/countries`)
@@ -27,7 +31,7 @@ class Countries extends Component {
           {
             this.state.countries
             .map(country =>
-              <li key={country.id}><Link to={`/countries/${country.id}`}>{country.name}</Link></li>
+              <li key={country.id}><Link to={`/countries/${country.id}`} onClick={() => this.setId(country.id)}>{country.name}</Link></li>
               )
             }
 

@@ -44,3 +44,7 @@
 li {
   list-style-type: none;
 }
+
+.featuredFivePhoto {
+  max-height: 200px;
+}
