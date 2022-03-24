@@ -12,7 +12,8 @@ class Countries extends Component {
   }
   
   setId(id) {
-    localStorage.setItem('id', id);
+    this.setState({id: id});
+    // localStorage.setItem('id', id);
   }
   
   componentDidMount() {
