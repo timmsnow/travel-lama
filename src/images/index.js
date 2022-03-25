@@ -19,7 +19,8 @@ const IMAGES = {
   galapagosbanner: require('../images/galapagosbanner.jpg'),
   boliviabanner: require('../images/boliviabanner.jpg'),
   italybanner: require('../images/italybanner.jpg'),
-  maltabanner: require('../images/maltabanner.jpg')
+  maltabanner: require('../images/maltabanner.jpg'),
+  boliviatop5llama: require('../images/boliviatop5llama.jpg')
 }
 
 export default IMAGES;
