@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Parser from 'html-react-parser';
 
 class IntroContainer extends Component {
   constructor(props) {
@@ -6,12 +7,14 @@ class IntroContainer extends Component {
     this.state = {
     }
   }
+
   
   render() {
       return(
         <div>
-
-        <p>{this.props.introMessage}</p>
+          <div className="basic-container">
+            {Parser(String(this.props.introMessage))}
+          </div>
         </div>
       );
     }

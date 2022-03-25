@@ -48,3 +48,17 @@ li {
 .featuredFivePhoto {
   max-height: 200px;
 }
+
+.basic-container {
+  /* border: 1px solid #dd9933; */
+  padding: 5%;
+  margin: 2% 10%;
+}
+
+.country-banner {
+  max-width: 100%;
+}
+
+.hidden {
+  display: none;
+}

@@ -51,10 +51,10 @@ function getFirstPhotos(photos) {
 
 function FeaturedFive(props) {
   let { id } = useParams();
-  const [img1, setIMG1] = useState('');
-  const [photos, setPhotos] = useState([]);
-  const [hovered, setHovered] = useState(false);
-  const [firstPhotos, setFirstPhotos] = useState([]);
+  let [img1, setIMG1] = useState('');
+  let [photos, setPhotos] = useState([]);
+  let [hovered, setHovered] = useState(false);
+  let [firstPhotos, setFirstPhotos] = useState([]);
   
   
   useEffect(() => {
@@ -70,7 +70,7 @@ function FeaturedFive(props) {
 
   return(
     <div>
-    <img className='featuredFivePhoto' src={img1} 
+    {/* <img className='featuredFivePhoto' src={img1} 
       onMouseEnter={() => {
         setIMG1(photos[1].split('.').reduce((o,i)=> o[i], IMAGES)); 
         setHovered(true);
@@ -80,7 +80,7 @@ function FeaturedFive(props) {
         setHovered(false);
       }}
       style={{transform: `${hovered ? 'scale(1.5,1.5)' : 'scale(1,1)'}`
-    }} alt={""}></img>
+    }} alt={""}></img> */}
     </div>
   );
 }
