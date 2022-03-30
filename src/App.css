@@ -57,6 +57,10 @@ li {
   font-size: 14pt;
 }
 
+.home-banner {
+  max-width: 100%;
+}
+
 .country-banner {
   max-width: 100%;
   border-top: 1px solid black;
@@ -86,4 +90,8 @@ li {
 .llama-banner {
   margin: auto;
   max-width: 80%;
+}
+
+.section-container {
+  border: 1px solid #e48d48;
 }

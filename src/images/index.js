@@ -20,7 +20,7 @@ const IMAGES = {
   boliviabanner: require('../images/boliviabanner.jpg'),
   italybanner: require('../images/italybanner.jpg'),
   maltabanner: require('../images/maltabanner.jpg'),
-  boliviatop5llama: require('../images/boliviatop5llama.jpg')
+  boliviatop5llama: require('../images/boliviatop5llama.jpg'),
 }
 
 export default IMAGES;

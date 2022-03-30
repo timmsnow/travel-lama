@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import TopExperience from './TopExperience';
 // import kalahari2 from '../images/kalahari2.jpg';
 // import kalahari3 from '../images/kalahari3.jpg';
 import IMAGES from '../images/index.js';
@@ -55,21 +55,34 @@ function FeaturedFive(props) {
   let [photos, setPhotos] = useState([]);
   let [hovered, setHovered] = useState(false);
   let [firstPhotos, setFirstPhotos] = useState([]);
-  
+  let [experienceNames, setExperienceNames] = useState('');
+  let [experienceIds, setExperienceIds] = useState('');
   
   useEffect(() => {
-    axios.get(`http://localhost:3000/countries/${id}/photos`)
+    // axios.get(`http://localhost:3000/countries/${id}/photos`)
+    // .then(res => {
+    //   let photos = res.data;
+    //   setPhotos(photos);
+    //   let filepath1 = photos[0].split('.').reduce((o,i)=> o[i], IMAGES)
+    //   setIMG1(filepath1);
+    //   setFirstPhotos(getFirstPhotos(photos));
+    // })
+    axios.get(`http://localhost:3000/countries/${id}/experiences`)
     .then(res => {
-      let photos = res.data;
-      setPhotos(photos);
-      let filepath1 = photos[0].split('.').reduce((o,i)=> o[i], IMAGES)
-      setIMG1(filepath1);
-      setFirstPhotos(getFirstPhotos(photos));
+      let experienceNames = res.data.map(e => e.name);
+      let experienceIds = res.data.map(e => e.id);
+      console.log(experienceIds);
+      setExperienceNames(experienceNames);
+      setExperienceIds(experienceIds);
     })
   }, []);
 
   return(
     <div>
+      <div className="section-container">
+        <h3>Top Experiences</h3>
+          <TopExperience names={experienceNames} ids={experienceIds}/>
+      </div>
     {/* <img className='featuredFivePhoto' src={img1} 
       onMouseEnter={() => {
         setIMG1(photos[1].split('.').reduce((o,i)=> o[i], IMAGES)); 
