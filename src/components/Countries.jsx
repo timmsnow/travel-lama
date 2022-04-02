@@ -32,7 +32,7 @@ class Countries extends Component {
           {
             this.state.countries
             .map(country =>
-              <li key={country.id}><Link to={`/countries/${country.id}`} onClick={() => this.setId(country.id)}>{country.name}</Link></li>
+              <li key={country.id}><Link to={`/countries/${country.id}`} id={`${country.id}`} onClick={() => this.setId(country.id)}>{country.name}</Link></li>
               )
             }
 
