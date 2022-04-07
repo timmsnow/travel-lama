@@ -7,12 +7,11 @@ import CountryName from './CountryName';
 import PageJump from './PageJump';
 import IMAGES from '../images/index.js';
 
-function Country(props) {
+function Country() {
   let { id } = useParams();
   let [country, setCountry] = useState({});
-  let [image, setImage] = useState('')
-  let [experienceNames, setExperienceNames] = useState()
-  let [experienceIds, setExperienceIds] = useState()
+  // let [image, setImage] = useState('')
+  let [experiences, setExperiences] = useState();
  
   useEffect(() => {
     fetchCountry();
@@ -21,16 +20,18 @@ function Country(props) {
 
   const fetchCountry = async () => {
     const country = await axios.get(`http://localhost:3000/countries/${id}`)
-      setCountry(country.data);
-      let name = country.data.name.toLowerCase().replace(/\s/g, "");
-      let img = name + 'top5llama'
-      setImage(img.split(' ').reduce((o,i)=> o[i], IMAGES)) ;
-  }
-
-  const fetchExperiences = async () => {
-    const experiences = await axios.get(`http://localhost:3000/countries/${id}/experiences`)
-      setExperienceNames(experiences.data.map(x => x.name))
-      setExperienceIds(experiences.data.map(x => x.id))
+      setCountry(country.data)
+      // let name = country.data.name.toLowerCase().replace(/\s/g, "");
+      // let img = name + 'top5llama'
+      // setImage(img.split(' ').reduce((o,i)=> o[i], IMAGES)) ;
+    }
+    
+  const fetchExperiences =  () => {
+    axios.get(`http://localhost:3000/countries/${id}/experiences`)
+    .then((response) => {
+      const experiences = response.data
+      setExperiences(experiences);
+    })
   }
 
   
@@ -41,9 +42,12 @@ function Country(props) {
       <IntroContainer introMessage={country.intro}/>
       <div id="top-5">
         <h2 className="hidden">TraveLlama Featured 5</h2>
-        <img className="llama-banner" src={image} />
+        {/* <img className="llama-banner" src={image} /> */}
       </div>
-      <FeaturedFive experienceIds={experienceIds} experienceNames={experienceNames} country={country.id}/>
+      <div className="section-container">
+        <h3 className="text-center">Top Experiences</h3>
+      </div>
+      {experiences && <FeaturedFive experiences={experiences} country={country.id}/> }
     </div>
   );
 }

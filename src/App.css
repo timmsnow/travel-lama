@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  line-height: 140%;
 }
 
 .App-logo {
@@ -24,9 +24,9 @@
   color: white;
 }
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
 @keyframes App-logo-spin {
   from {
@@ -94,4 +94,26 @@ li {
 
 .section-container {
   border: 1px solid #e48d48;
+}
+
+.post-body {
+  color: rgb(72, 72, 72);
+  margin: 5%;
+  padding: 2%;
+  border: 1px solid #e48d48;
+}
+
+.section-header {
+  margin-bottom: 10px;
+}
+
+.title {
+  margin-top: 25px;
+}
+
+.no-btn {
+  border: none;
+  color: blue;
+  font-style: italic;
+  background: none;
 }
