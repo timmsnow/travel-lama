@@ -1,7 +1,7 @@
 import React from 'react';
 import TopExperience from './TopExperience';
 
-function FeaturedFive(props) {
+function Experiences(props) {
   const experiences = props.experiences
 
   if (experiences.length > 0)  {
@@ -20,4 +20,4 @@ function FeaturedFive(props) {
         
 }
 
-export default FeaturedFive;
+export default Experiences;

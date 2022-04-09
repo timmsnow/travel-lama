@@ -117,3 +117,13 @@ li {
   font-style: italic;
   background: none;
 }
+
+.top5-container {
+  margin: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.top5-card {
+  max-width: 200px;
+}
