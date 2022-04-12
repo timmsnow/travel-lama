@@ -15,6 +15,11 @@ class NavBar extends React.Component {
                     <li>About</li>
                 </Link>
             </ul>
+            <ul>
+                <Link to={"./sign_in"}>
+                    <li>Sign In</li>
+                </Link>
+            </ul>
         </nav>
     ) 
     }

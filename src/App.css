@@ -125,5 +125,21 @@ li {
 }
 
 .top5-card {
-  max-width: 200px;
+  width: 180px;
+  height: 275px;
+  background-image: url("./images/chobe1.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.top5-content {
+  max-width: 100%;
+  color: white;
+  text-shadow: 2px 1px 1px #222121;
+  font-size: 15px;
+  text-align: center;
+}
+
+.top5-post {
+  margin: 5%;
 }

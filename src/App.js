@@ -3,6 +3,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
+import SignIn from './components/SignIn';
 import Navbar from './components/Navbar';
 import Countries from './components/Countries';
 import Country from './components/Country';
@@ -25,6 +26,7 @@ function App() {
           {/* <Route exact path="/contacts" component={Contacts}></Route> */}
           {/* <Route exact path="/about" component={About}></Route> */}
           <Route exact path="/about" element={<About />}></Route>
+          <Route exact path="/sign_in" element={<SignIn />}></Route>
           {/* <Route exact path="/contact" component={Contact}></Route>
         <Route exact path="/projects" component={Projects}></Route> */} 
         </Routes>

@@ -24,7 +24,7 @@ function TopExperience(props) {
           <h4 className="title text-center">{props.name}</h4>
           {posts.length > 0 ? posts.map(x => 
           <div className="post-body" key={x.id}>
-            <div className="text-left section-header">User says:</div>
+            <div className="text-left section-header">{x.user_id ? x.user.name : ''} says:</div>
             <ExperiencePost body={x.body} />
           </div>
           ) : ""}
