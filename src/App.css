@@ -126,10 +126,16 @@ li {
 
 .top5-card {
   width: 180px;
-  height: 275px;
-  background-image: url("./images/chobe1.jpg");
+  height: 250px;
+  /* background-image: url("./images/chobe1.jpg"); */
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.top5-card:hover {
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+  rgba(0, 0, 0, 0.5)), url("./images/chobe1.jpg"); */
+  transform: scale(1.2);
 }
 
 .top5-content {

@@ -1,6 +1,6 @@
 const IMAGES = {
-  kalahari2: require('../images/kalahari2.jpg'),
-  kalahari3: require('../images/kalahari3.jpg'),
+  // kalahari2: require('../images/kalahari2.jpg'),
+  // kalahari3: require('../images/kalahari3.jpg'),
   perubanner: require('../images/perubanner.jpg'),
   southafricabanner: require('../images/southafricabanner.jpg'),
   egyptbanner: require('../images/egyptbanner.jpg'),
@@ -21,6 +21,12 @@ const IMAGES = {
   italybanner: require('../images/italybanner.jpg'),
   maltabanner: require('../images/maltabanner.jpg'),
   boliviatop5llama: require('../images/boliviatop5llama.jpg'),
+  chobe: require('../images/chobe.jpg'),
+  Desert: require('../images/Desert.jpg'),
+  Khama: require('../images/Khama.jpg'),
+  Khwai: require('../images/Khwai.jpg'),
+  Makgadikgadi: require('../images/Makgadikgadi.jpg'),
+  Kgalagadi: require('../images/Kgalagadi.jpg'),
 }
 
 export default IMAGES;
