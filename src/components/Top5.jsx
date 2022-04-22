@@ -60,13 +60,16 @@ function Top5(props) {
                 backgroundImage : "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(" + im + ")"  
               };
               return(
-                <Card key={i.id} className="top5-card" onMouseEnter={()=>{ toggleDark(i.id)}} onMouseLeave={() =>{ toggleDark(i.id)}} style={(!hover[i.id] ? divImage : divImageDark)}>
-                  <div className="top5-content" onMouseEnter={() => toggleDescription(i.id)} onMouseLeave={() => toggleDescription(i.id)}>
-                   {shownDescription[i.id] ? <p  className="top5-post">{i.posts[0].body.substring(0, limit) + "..."} </p> : <h2>{i.name}</h2>}
-                  </div>
-                  <Button onClick={() => {upVoteExperience(i.id)}}>UpVote</Button>
-                  <Button onClick={() => {downVoteExperience(i.id)}}>DownVote</Button>
-                </Card>
+                <div key={i.id}>
+                  <Card className="top5-card" onMouseEnter={()=>{ toggleDark(i.id)}} onMouseLeave={() =>{ toggleDark(i.id)}} style={(!hover[i.id] ? divImage : divImageDark)}>
+                    <div className="top5-content" onMouseEnter={() => toggleDescription(i.id)} onMouseLeave={() => toggleDescription(i.id)}>
+                     {shownDescription[i.id] ? <p  className="top5-post">{i.posts[0].body.substring(0, limit) + "..."} </p> : <h2>{i.name}</h2>}
+                    </div>
+                  </Card>
+                    <Button onClick={() => {upVoteExperience(i.id)}}>UpVote</Button>
+                    <Button onClick={() => {downVoteExperience(i.id)}}>DownVote</Button>
+
+                </div>
               )
             })
           }

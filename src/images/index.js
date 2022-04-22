@@ -21,12 +21,13 @@ const IMAGES = {
   italybanner: require('../images/italybanner.jpg'),
   maltabanner: require('../images/maltabanner.jpg'),
   boliviatop5llama: require('../images/boliviatop5llama.jpg'),
-  chobe: require('../images/chobe.jpg'),
+  Chobe: require('../images/chobe.jpg'),
   Desert: require('../images/Desert.jpg'),
   Khama: require('../images/Khama.jpg'),
   Khwai: require('../images/Khwai.jpg'),
   Makgadikgadi: require('../images/Makgadikgadi.jpg'),
   Kgalagadi: require('../images/Kgalagadi.jpg'),
+  Nxai: require('../images/nxai.jpg'),
 }
 
 export default IMAGES;
