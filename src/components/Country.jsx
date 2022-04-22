@@ -34,18 +34,21 @@ function Country() {
     const fetchExperiences =  () => {
       axios.get(`http://localhost:3000/countries/${id}/experiences`)
       .then((response) => {
-        const experiences = response.data
+        const experiences = response.data.experiences
         console.log(experiences)
-        setTop5(experiences.slice(0, 5));
-        let moreExperiences = experiences.filter(x => !experiences.slice(0, 5).includes(x));
+        let tops = response.data.top5
+        console.log(tops)
+        setTop5(tops);
+        let moreExperiences = experiences.filter(x => !tops.find(({ id }) => x.id === id));
+        console.log(moreExperiences)
         setExperiences(moreExperiences);
       })
     };
-
+    
     fetchCountry();
     fetchExperiences();
   }, [id]);
-
+  
 
 
   const experienceInputsHandler = (e) =>{
