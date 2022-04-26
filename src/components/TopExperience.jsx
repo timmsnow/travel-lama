@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import ExperiencePost from './ExperiencePost';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import Card from 'react-bootstrap/Card';
 
 function TopExperience(props) {
   let [posts, setPosts] = useState('');
@@ -43,16 +44,22 @@ function TopExperience(props) {
     return(
       <div>
         {
-         <li key={props.id}> 
+          
+          <li key={props.id}> 
+         <Card>
           <h4 className="title text-center">{props.name}</h4>
           <Button onClick={() => {upVoteExperience(props.id)}}>UpVote</Button>
           <Button onClick={() => {downVoteExperience(props.id)}}>DownVote</Button>
-          {posts.length > 0 ? posts.map(x => 
-          <div className="post-body" key={x.id}>
-            <div className="text-left section-header">{x.user_id ? x.user.name : ''} says:</div>
-            <ExperiencePost body={x.body} />
+          <div className="post-body">
+            {props.description ? <ExperiencePost description={props.description} /> : ""}
+
           </div>
-          ) : ""}
+         </Card>
+          {/* {posts.length > 0 ? posts.map(x => 
+          <div className="post-body" key={x.id}>
+          <div className="text-left section-header">{x.user_id ? x.user.name : ''} says:</div>
+          </div>
+        ) : ""} */}
         </li>
         }
       </div>

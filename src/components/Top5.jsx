@@ -8,16 +8,13 @@ import axios from 'axios';
 
 
 function Top5(props) {
-  const limit = 200
+  const limit = 280
   const [shownDescription, setShownDescription] = useState({});
   const [hover, setHover] = useState({});
-
-  const toggleDescription = (id) => {
-    setShownDescription(prev => Boolean(!prev[id]) ? {...prev, [id]: true} : {...prev, [id]: false});
-  }
-
-  const toggleDark = (id) => {
+  
+  const toggleDarkAndDescription = (id) => {
     setHover(prev => Boolean(!prev[id]) ? {...prev, [id]: true} : {...prev, [id]: false});
+    setShownDescription(prev => Boolean(!prev[id]) ? {...prev, [id]: true} : {...prev, [id]: false});
   }
 
   const upVoteExperience = (id) => {
@@ -61,9 +58,9 @@ function Top5(props) {
               };
               return(
                 <div key={i.id}>
-                  <Card className="top5-card" onMouseEnter={()=>{ toggleDark(i.id)}} onMouseLeave={() =>{ toggleDark(i.id)}} style={(!hover[i.id] ? divImage : divImageDark)}>
-                    <div className="top5-content" onMouseEnter={() => toggleDescription(i.id)} onMouseLeave={() => toggleDescription(i.id)}>
-                     {shownDescription[i.id] ? <p  className="top5-post">{i.posts[0].body.substring(0, limit) + "..."} </p> : <h2>{i.name}</h2>}
+                  <Card className="top5-card" onMouseEnter={()=>{ toggleDarkAndDescription(i.id)}} onMouseLeave={() =>{ toggleDarkAndDescription(i.id)}} style={(!hover[i.id] ? divImage : divImageDark)}>
+                    <div className="top5-content">
+                     {shownDescription[i.id] ? <p  className="top5-post">{i.description.substring(0, limit) + "..."} </p> : <h2>{i.name}</h2>}
                     </div>
                   </Card>
                     <Button onClick={() => {upVoteExperience(i.id)}}>UpVote</Button>

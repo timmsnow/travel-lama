@@ -28,6 +28,9 @@ const IMAGES = {
   Makgadikgadi: require('../images/Makgadikgadi.jpg'),
   Kgalagadi: require('../images/Kgalagadi.jpg'),
   Nxai: require('../images/nxai.jpg'),
+  Central: require('../images/central.jpg'),
+  Tsodilo: require('../images/tsodilo.jpg'),
+  Okavango: require('../images/okavango.jpg'),
 }
 
 export default IMAGES;

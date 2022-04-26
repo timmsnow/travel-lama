@@ -9,7 +9,8 @@ function Experiences(props) {
       experiences.map(x => {
         return(
     <div key={x.id}>
-        {<TopExperience name={x.name} id={x.id}/>}
+      {<TopExperience name={x.name} id={x.id} description={x.description}/>}
+        
     </div>
     )})
   )} else {

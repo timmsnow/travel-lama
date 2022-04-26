@@ -127,23 +127,29 @@ li {
 .top5-card {
   width: 180px;
   height: 250px;
-  /* background-image: url("./images/chobe1.jpg"); */
   background-size: contain;
   background-repeat: no-repeat;
 }
 
 .top5-card:hover {
-  /* background-image: linear-gradient(rgba(0, 0, 0, 0.5),
-  rgba(0, 0, 0, 0.5)), url("./images/chobe1.jpg"); */
   transform: scale(1.2);
 }
 
 .top5-content {
   max-width: 100%;
   color: white;
-  text-shadow: 2px 1px 1px #222121;
+  line-height: 110%;
+  text-shadow: 1px 1px 5px #090909;
   font-size: 15px;
+  font-family: 'Oxygen', sans-serif;
   text-align: center;
+  overflow: hidden;
+}
+
+.top5-content h2{
+  font-size: 2vw;
+  margin-top: 8%;
+  font-weight: bold;
 }
 
 .top5-post {
