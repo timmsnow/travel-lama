@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {FaThumbsUp, FaThumbsDown} from 'react-icons/fa';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -18,7 +19,7 @@ function Top5(props) {
   }
 
   const upVoteExperience = (id) => {
-    let params = {
+    const params = {
       experience_id: id,
       vote_cd: 1,
     };
@@ -63,9 +64,11 @@ function Top5(props) {
                      {shownDescription[i.id] ? <p  className="top5-post">{i.description.substring(0, limit) + "..."} </p> : <h2>{i.name}</h2>}
                     </div>
                   </Card>
-                    <Button onClick={() => {upVoteExperience(i.id)}}>UpVote</Button>
-                    <Button onClick={() => {downVoteExperience(i.id)}}>DownVote</Button>
 
+                  <div className="upvote_icons">
+                    <FaThumbsUp className="icon" size={10} onClick={() => {upVoteExperience(i.id)}} />
+                    <FaThumbsDown className="icon" size={10} onClick={() => {downVoteExperience(i.id)}} />
+                  </div>
                 </div>
               )
             })

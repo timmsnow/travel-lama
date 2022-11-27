@@ -155,3 +155,65 @@ li {
 .top5-post {
   margin: 5%;
 }
+
+.upvote_icons {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  margin: .5em;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.flex_header {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.center {
+  text-align: center;
+}
+
+.sign-in-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5em;
+  text-align: left;
+  gap: 1em;
+}
+
+.form-inputs {
+  display: flex;
+  gap: 1.5em;
+}
+
+.margin-top{
+  margin-top: 5em;
+}
+
+.errors{
+  color: red;
+  font-size: 12px;
+}
+
+.margin-bottom {
+  margin-bottom: 5%;
+}
+
+.padding-top {
+  padding-top: 1em;
+}
+
+.flex-right {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+}

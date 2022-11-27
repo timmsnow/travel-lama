@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import {FaThumbsUp, FaThumbsDown} from 'react-icons/fa';
 import ExperiencePost from './ExperiencePost';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 
@@ -44,23 +44,23 @@ function TopExperience(props) {
     return(
       <div>
         {
-          
           <li key={props.id}> 
-         <Card>
-          <h4 className="title text-center">{props.name}</h4>
-          <Button onClick={() => {upVoteExperience(props.id)}}>UpVote</Button>
-          <Button onClick={() => {downVoteExperience(props.id)}}>DownVote</Button>
-          <div className="post-body">
-            {props.description ? <ExperiencePost description={props.description} /> : ""}
-
-          </div>
-         </Card>
-          {/* {posts.length > 0 ? posts.map(x => 
-          <div className="post-body" key={x.id}>
-          <div className="text-left section-header">{x.user_id ? x.user.name : ''} says:</div>
-          </div>
-        ) : ""} */}
-        </li>
+            <Card>
+              <div className="flex_header">
+                <h4 className="text-center">{props.name}</h4>
+                <FaThumbsUp className="icon" size={10} onClick={() => {upVoteExperience(props.id)}} />
+                <FaThumbsDown className="icon" size={10} onClick={() => {downVoteExperience(props.id)}} />
+              </div>
+              <div className="post-body">
+                {props.description ? <ExperiencePost description={props.description} /> : ""}
+              </div>
+            </Card>
+            {/* {posts.length > 0 ? posts.map(x => 
+            <div className="post-body" key={x.id}>
+            <div className="text-left section-header">{x.user_id ? x.user.name : ''} says:</div>
+            </div>
+          ) : ""} */}
+          </li>
         }
       </div>
       );

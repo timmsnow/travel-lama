@@ -1,69 +1,73 @@
-import React, { Component } from 'react';
-import { Card, Container, Row, Col, Form, Button } from "react-bootstrap";
-import axios from 'axios';
-
+import axios from "axios";
+import React, { Component } from "react";
+import { Form, Button } from "react-bootstrap";
 
 class SignIn extends Component {
-  state = { name: '', email: '', password: '', password_confirmation: '' }
+  state = {
+    email: "",
+    password: "",
+    errors: [],
+  };
 
-  userInputsHandler = (e) =>{
-    this.setState( {[e.target.name]: e.target.value} )
-  }
+  handleReset = () => {
+    document.getElementById("form").reset();
+  };
 
-  addUser = () => {
-    let params = {
-      name: this.state.name,
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSubmit = (event) => {
+    const userInfo = {
       email: this.state.email,
       password: this.state.password,
-      password_confirmation: this.state.password_confirmation
     };
-    axios.post(`http://localhost:3000/users`, params)
-    .then((response) => {
-      console.log(response)
-    })
-  }
 
-  render() { 
+    axios
+      .post("http://localhost:3000/sessions", userInfo)
+      .then((response) => {
+        console.log("Logging in...");
+        axios.defaults.headers.common["Authorizaton"] = "Bearer " + response.data.jwt;
+        localStorage.setItem("jwt", response.data.jwt);
+        localStorage.setItem("user_id", response.data.user_id);
+        this.props.showNavBar();
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({ errors: "Invalid Email or Password" });
+        this.handleReset();
+      });
+  };
+
+  render() {
     return (
-      <div>
-        <Container fluid className="margin">
-          <Row className="center">
-            <Col lg="8">
-        <Card>
-      <Card.Title className="center margin">Sign In To TraveLama</Card.Title>
-      <Card.Body className="margin">
-      <Form>
-        <Form.Group className="mb-3" controlId="formAddUser">
-          <Form.Label>Username</Form.Label>
-          <input type="text" placeholder="User Name" name="name" value={this.state.name} onChange={this.userInputsHandler}  />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formAddUser">
-          <Form.Label>Email</Form.Label>
-          <input type="text" placeholder="User Name" name="email" value={this.state.email} onChange={this.userInputsHandler}  />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formAddUser">
-          <Form.Label>Password</Form.Label>
-          <input type="text" placeholder="User Name" name="password" value={this.state.password} onChange={this.userInputsHandler}  />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formAddUser">
-          <Form.Label>Password Confirmation</Form.Label>
-          <input type="text" placeholder="User Name" name="password_confirmation" value={this.state.password_confirmation} onChange={this.userInputsHandler}  />
-        </Form.Group>
-      </Form>
-      <Button value="submit" type="submit" onClick={this.addUser}>Sign Up</Button>
-       </Card.Body>
-      </Card>
-      </Col>
-      </Row>
-      {/* <Row className="center margin">
-        <Col lg="8" className="center">
-      <p className="small text-center"></p>
-      </Col>
-      </Row> */}
-      </Container>
+      <div className="center margin-top">
+        <Form className="sign-in-form" id="form" onSubmit={(e) => e.preventDefault()}>
+          <div>
+            <p className="text-danger">{this.state.errors}</p>
+          </div>
+          <Form.Group className="form-inputs">
+            <Form.Label htmlFor="email">Email:</Form.Label>
+            <Form.Control type="text" name="email" id="email" onChange={this.handleChange} />
+          </Form.Group>
+          <Form.Group className="form-inputs">
+            <Form.Label htmlFor="password">Password:</Form.Label>
+            <Form.Control type="password" name="password" id="password" onChange={this.handleChange} />
+          </Form.Group>
+          <div className="center">
+          <Button onClick={this.handleSubmit}>Sign In</Button>
+          </div>
+          <div className="flex-right">
+          <p>No Account?</p>
+          <Button onClick={this.props.showSignUpComponent}> Sign Up</Button>
+          </div>
+        </Form>
       </div>
-     );
+    );
   }
 }
- 
+
 export default SignIn;
